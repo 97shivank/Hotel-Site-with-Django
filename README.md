@@ -1,7 +1,7 @@
 # Hotel-Site-with-Django
 
 
-we have build a restaurant system with:
+we have build a Hotel site which has:
 
     Rooms
     Book A Room

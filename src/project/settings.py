@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'hotel_manage',
-    'USER': 'postgres',
-    'PASSWORD': 'praneeth19',
+    'NAME': 'db_name',
+    'USER': 'name',
+    'PASSWORD': '',
     'HOST': 'localhost',
-    'PORT': '5432',
+    'PORT': '',
 }
 }
 

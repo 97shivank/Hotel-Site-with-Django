@@ -9,12 +9,12 @@ def property_list(request):
     
     address_query  = request.GET.get('q')
     property_type = request.GET.get('property_type',None)
-    if address_query  and property_type:
+    if address_query is not None and property_type is not None:
         print(address_query)
         print(property_type)
         property_list =property_list.filter(
             Q(name__icontains=address_query) & 
-            Q(property_type__icontains=property_type[0])
+            Q(property_type__icontains=property_type)
         ).distinct()
 
     print(property_list)

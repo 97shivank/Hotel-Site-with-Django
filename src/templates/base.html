@@ -26,13 +26,20 @@
 
   <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="index.html" class="probootstrap-logo">Haus<span>.</span></a>
+        <a href="{index.html}" class="probootstrap-logo">Haus<span>.</span></a>
         
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
 
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'register' %}">Register</a></li>
+              <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
             <li {% if category_list_home %} class="active" {% endif %}><a href="/">Home</a></li>
             <li {% if property_list %} class="active" {% endif %}><a href="{% url 'property:property_list' %}">Properties</a></li>
             <li {% if agent_list %} class="active" {% endif %}><a href="{% url 'agents:agent_list' %}">Agents</a></li>
@@ -54,8 +61,16 @@
     </div>
   </header>
  
-  {% block body %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }}">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif %}
   
+  {% block body %}
+    
 
   {% endblock body %}
  

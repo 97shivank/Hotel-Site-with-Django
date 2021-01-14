@@ -1,4 +1,4 @@
-# Hotel-Site-with-Django
+# Tripster
 
 
 I have build a Hotel site which has:
